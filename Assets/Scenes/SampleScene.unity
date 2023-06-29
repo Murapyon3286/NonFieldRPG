@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978ecadb8e7e7914f9a10170839c317f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  at: 10
+  hp: 74
+  at: 29
 --- !u!4 &104243231
 Transform:
   m_ObjectHideFlags: 0
@@ -168,53 +168,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &134123270
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 134123272}
-  - component: {fileID: 134123271}
-  m_Layer: 0
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &134123271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134123270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b154a8dde841fa84b8503be69fa7aa58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: test
-  hp: 80
-  at: 20
---- !u!4 &134123272
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134123270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 256.9434, y: 1197.773, z: -9.165068}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174764448
 GameObject:
@@ -373,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -401.11755, y: -478.97632}
+  m_AnchoredPosition: {x: -398, y: -714}
   m_SizeDelta: {x: 249.7649, y: 95.9527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227499941
@@ -828,7 +781,6 @@ MonoBehaviour:
   playerUI: {fileID: 1419295443}
   enemyUI: {fileID: 1732579821}
   player: {fileID: 104243230}
-  enemy: {fileID: 134123271}
 --- !u!4 &603427811
 Transform:
   m_ObjectHideFlags: 0
@@ -879,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 386.5}
+  m_AnchoredPosition: {x: 9, y: 589}
   m_SizeDelta: {x: 249.7649, y: 95.9527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901019518
@@ -959,7 +911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -401.11755, y: -574.93}
+  m_AnchoredPosition: {x: -398, y: -809.9537}
   m_SizeDelta: {x: 249.7649, y: 95.9527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914894368
@@ -1039,8 +991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 485.9}
-  m_SizeDelta: {x: 249.7649, y: 95.9527}
+  m_AnchoredPosition: {x: 175.7372, y: 686.68}
+  m_SizeDelta: {x: 583.2394, y: 99.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101427908
 MonoBehaviour:
@@ -1068,7 +1020,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 70
+    m_MaxSize: 100
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1528,6 +1480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageUI: {fileID: 578173807}
   enemyPrefab: {fileID: 7414929170302480680, guid: e14bbfa0bd343ee4caaa0b7d45a70600, type: 3}
+  battleManager: {fileID: 603427810}
 --- !u!4 &1424805501
 Transform:
   m_ObjectHideFlags: 0
