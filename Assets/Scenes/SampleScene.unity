@@ -778,6 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1644f8f3ce7c76541b5183737b6d3e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemManager: {fileID: 1424805500}
   playerUI: {fileID: 1419295443}
   enemyUI: {fileID: 1732579821}
   player: {fileID: 104243230}

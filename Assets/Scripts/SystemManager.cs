@@ -43,4 +43,9 @@ public class SystemManager : MonoBehaviour
     EnemyManager enemy = enemyObj.GetComponent<EnemyManager>();
     battleManager.Setup(enemy);
   }
+
+  public void EndBattle()
+  {
+    stageUI.ShowButtons();
+  }
 }
