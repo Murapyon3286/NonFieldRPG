@@ -5,7 +5,7 @@ using UnityEngine;
 public class TitleManager : MonoBehaviour
 {
   // スタートボタンが押されたら
-	public void OnStartButton()
+	public void NewGameButton()
 	{
 		SoundManager.instance.PlaySE(0);
 	}

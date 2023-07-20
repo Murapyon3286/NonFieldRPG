@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7414929170302480680}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2915889380245976692
 SpriteRenderer:
@@ -175,4 +175,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u30B7\u30F3\u30B4\u30EA\u30D5\u30A1\u30FC"
   hp: 40
-  at: 15
+  at: 100
+  HitEffect: {fileID: 7897942067800758585, guid: ce6e22980cb39e845b35beccec8002a8, type: 3}

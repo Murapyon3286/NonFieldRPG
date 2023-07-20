@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TownManager : MonoBehaviour
 {
-  // スタートボタンが押されたら
+	private void Start()
+	{
+		DialogTextManager.instance.SetScenarios(new string[] { "街に着いた。" });
+	}
+
+	// スタートボタンが押されたら
 	public void OnQuestButton()
 	{
 		SoundManager.instance.PlaySE(0);

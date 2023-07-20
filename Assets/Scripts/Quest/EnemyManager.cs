@@ -11,22 +11,26 @@ public class EnemyManager : MonoBehaviour
   public new string name;
   public int hp;
   public int at;
+	public GameObject HitEffect;
 
   // UŒ‚‚·‚é
-  public void Attack(PlayerManager player)
+  public int Attack(PlayerManager player)
   {
-    player.Damage(at);
+    int damage = player.Damage(at);
+		return damage;
   }
 
   // ƒ_ƒ[ƒW‚ğó‚¯‚é
-  public void Damage(int damage)
+  public int Damage(int damage)
   {
+		Instantiate(HitEffect, this.transform);
 		transform.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
     hp -= damage;
     if (hp <= 0)
     {
       hp = 0;
     }
+		return damage;
   }
 
   // tapAction‚ÉŠÖ”‚ğ“o˜^‚·‚éŠÖ”‚ğì‚é

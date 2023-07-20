@@ -20,32 +20,46 @@ public class QuestManager : MonoBehaviour
   private void Start()
   {
     stageUI.UpdateUI(currentStage);
+		DialogTextManager.instance.SetScenarios(new string[] { "森に着いた。" });
   }
 
-  // Nextボタンが押されたら
-  public void OnNextButton()
-  {
+	IEnumerator Searching()
+	{
+		DialogTextManager.instance.SetScenarios(new string[] { "探索中..." });
 		// 背景を大きく
 		questBG.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 2f).OnComplete(() => questBG.transform.localScale = new Vector3(1, 1, 1));
 		// フェードアウト
 		SpriteRenderer questBGSpriteRenderer = questBG.GetComponent<SpriteRenderer>();
-		questBGSpriteRenderer.DOFade(0, 2f);
+		questBGSpriteRenderer.DOFade(0, 2f).OnComplete(() => questBGSpriteRenderer.DOFade(1, 0));
+		// 2秒間処理を待機する
+		yield return new WaitForSeconds(2f);
 
-		SoundManager.instance.PlaySE(0);
 		currentStage++;
-    // 進行度をUIに反映
-    stageUI.UpdateUI(currentStage);
-    if (encountTable.Length <= currentStage)
-    {
-      Debug.Log("クエストクリア");
-      QuestClear();
-      // クリア処理
-    }
-    else if (encountTable[currentStage] == 0)
-    {
-      EncountEnemy();
-    }
-  }
+		// 進行度をUIに反映
+		stageUI.UpdateUI(currentStage);
+		if (encountTable.Length <= currentStage)
+		{
+			Debug.Log("クエストクリア");
+			QuestClear();
+			// クリア処理
+		}
+		else if (encountTable[currentStage] == 0)
+		{
+			EncountEnemy();
+		}
+		else
+		{
+			stageUI.ShowButtons();
+		}
+	}
+
+  // Nextボタンが押されたら
+  public void OnNextButton()
+  {
+		SoundManager.instance.PlaySE(0);
+		stageUI.HideButtons();
+		StartCoroutine(Searching());
+	}
 
 	public void OnBackButton()
 	{
@@ -54,7 +68,8 @@ public class QuestManager : MonoBehaviour
 
   void EncountEnemy()
   {
-    stageUI.HideButtons();
+		DialogTextManager.instance.SetScenarios(new string[] { "モンスターに遭遇した！" });
+		stageUI.HideButtons();
     GameObject enemyObj= Instantiate(enemyPrefab);
     EnemyManager enemy = enemyObj.GetComponent<EnemyManager>();
     battleManager.Setup(enemy);
@@ -67,6 +82,7 @@ public class QuestManager : MonoBehaviour
 
   void QuestClear()
   {
+		DialogTextManager.instance.SetScenarios(new string[] { "宝箱を入手した。\n街に戻ろう。" });
 		SoundManager.instance.StopBGM();
 		SoundManager.instance.PlaySE(2);
 		// クエストクリア！と表示する
@@ -74,4 +90,9 @@ public class QuestManager : MonoBehaviour
 		stageUI.ShowClearText();
     // sceneTransitionManager.LoadTo("Town");
   }
+
+	public void PlayerDeath()
+	{
+		sceneTransitionManager.LoadTo("Town");
+	}
 }
