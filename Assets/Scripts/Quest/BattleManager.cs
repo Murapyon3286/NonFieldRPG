@@ -51,7 +51,7 @@ public class BattleManager : MonoBehaviour
     if (enemy.hp <= 0)
     {
       StartCoroutine(EndBattle());
-    }
+		}
     else
     {
       StartCoroutine(EnemyTurn());
@@ -82,6 +82,9 @@ public class BattleManager : MonoBehaviour
 		DialogTextManager.instance.SetScenarios(new string[] { "モンスターは逃げていった。" });
 		enemyUI.gameObject.SetActive(false);
 		Destroy(enemy.gameObject);
+		// playerの攻撃力を上げる
+		player.UpAttackPoint();
+		playerUI.UpdateUI(player);
 		SoundManager.instance.PlayBGM("Quest");
 		questManager.EndBattle();
   }

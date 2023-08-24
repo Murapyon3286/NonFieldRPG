@@ -14,4 +14,15 @@ public class TownManager : MonoBehaviour
 	{
 		SoundManager.instance.PlaySE(0);
 	}
+
+	public void OnSaveButton()
+	{
+		PlayerManager.GetInstance().Save();
+		SoundManager.instance.PlaySE(0);
+	}
+
+	public void OnTitleButton()
+	{
+		SoundManager.instance.PlaySE(0);
+	}
 }

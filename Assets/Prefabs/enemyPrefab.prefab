@@ -175,5 +175,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u30B7\u30F3\u30B4\u30EA\u30D5\u30A1\u30FC"
   hp: 40
-  at: 100
+  at: 25
   HitEffect: {fileID: 7897942067800758585, guid: ce6e22980cb39e845b35beccec8002a8, type: 3}

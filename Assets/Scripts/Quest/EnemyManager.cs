@@ -41,7 +41,7 @@ public class EnemyManager : MonoBehaviour
 
   public void OnTap()
   {
-    Debug.Log("クリックされた");
+    // Debug.Log("クリックされた");
     tapAction();
   }
 }

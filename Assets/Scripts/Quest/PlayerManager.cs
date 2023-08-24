@@ -1,14 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PlayerManager : MonoBehaviour
 {
-  public int hp;
-  public int at;
+	static PlayerManager Instance = null;
 
-  // çUåÇÇ∑ÇÈ
-  public int Attack(EnemyManager enemy)
+	static public PlayerManager GetInstance()
+	{
+		if (Instance == null)
+		{
+			Instance = new PlayerManager();
+		}
+		return Instance;
+	}
+
+	[SerializeField] public int hp;
+	[SerializeField] public int at;
+
+	// çUåÇÇ∑ÇÈ
+	public int Attack(EnemyManager enemy)
   {
     int damage = enemy.Damage(at);
 		return damage;
@@ -24,4 +37,31 @@ public class PlayerManager : MonoBehaviour
     }
 		return damage;
   }
+
+	public void UpAttackPoint()
+	{
+		at++;
+	}
+
+	string SAVEKEY = "PLAYER-SAVE-KEY";
+
+	public void Save()
+	{
+		PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(this));
+		PlayerPrefs.Save();
+	}
+
+	public void Load()
+	{
+		string json = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new PlayerManager()));
+		Instance = gameObject.AddComponent<PlayerManager>();
+		JsonUtility.FromJsonOverwrite(json, Instance);
+	}
+
+	public void DeleteSaveData()
+	{
+		PlayerPrefs.DeleteKey(SAVEKEY);
+		PlayerPrefs.Save();
+		Load();
+	}
 }

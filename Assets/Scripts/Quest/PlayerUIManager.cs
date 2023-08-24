@@ -17,5 +17,6 @@ public class PlayerUIManager : MonoBehaviour
   public void UpdateUI(PlayerManager player)
   {
     hpText.text = string.Format("HPÅF{0}", player.hp);
-  }
+		atText.text = string.Format("ATÅF{0}", player.at);
+	}
 }
